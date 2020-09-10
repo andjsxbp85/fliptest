@@ -19,7 +19,7 @@ Feature: Login Flip
   Scenario: 03 - User will redirected to "Sign Up" page if button "DAFTAR" clicked
     Given user berada di halaman login Flip ID
     When user menekan button 'Daftar' di pojok kanan atas halaman login
-    Then user akan di arahkan ke halaman utama Flip ID
+    Then user akan di arahkan ke halaman Sign Up
 
   Scenario Outline: 04 - All hyperlink on Flip lgin pages exist
     Given user berada di halaman 'Login' Flip ID

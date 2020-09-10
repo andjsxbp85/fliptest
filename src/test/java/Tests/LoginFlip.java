@@ -16,8 +16,8 @@ public class LoginFlip {
     }
 
     @When("user menekan button 'Masuk' di pojok kanan atas halaman utama")
-    public void user_menekan_button_di_pojok_kanan_atas_halaman_utama() {
-        LoginFlipStep.user_menekan_button_di_pojok_kanan_atas_halaman_utama();
+    public void user_menekan_button_Masuk_di_pojok_kanan_atas_halaman_utama() {
+        LoginFlipStep.user_menekan_button_Masuk_di_pojok_kanan_atas_halaman_utama();
     }
 
     @Then("user diarahkan ke halaman login Flip")
@@ -51,6 +51,11 @@ public class LoginFlip {
     @When("user menekan button 'Daftar' di pojok kanan atas halaman login")
     public void user_menekan_button_Daftar_di_pojok_kanan_atas_halaman_login() {
         LoginFlipStep.user_menekan_button_Daftar_di_pojok_kanan_atas_halaman_login();
+    }
+
+    @Then("user akan di arahkan ke halaman Sign Up")
+    public void user_akan_di_arahkan_ke_halaman_Sign_Up(){
+        LoginFlipStep.user_akan_di_arahkan_ke_halaman_Sign_Up();
     }
 
     //Scenario 4:

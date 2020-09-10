@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-public class WebExe extends funct {
+public class WebExe extends Funct {
     int selesai = 0;
     private String implicityWaitValue;
     public void sendKeys(WebElement elemen, CharSequence kata, int numOfTrial){

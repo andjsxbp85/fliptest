@@ -1,40 +1,53 @@
 package Steps;
 
+import Pages.FrontPages.HomePage;
+import Pages.FrontPages.LoginPage;
+import Pages.FrontPages.SignUpPage;
+
 public class LoginFlipStep {
+    HomePage HomePage;
+    LoginPage LoginPage;
+    SignUpPage SignUpPage;
+
     //Scenario 1:
     public void user_membuka_halaman_utama_Flip_ID() {
-
+        HomePage.open();
     }
 
-    public void user_menekan_button_di_pojok_kanan_atas_halaman_utama() {
-
+    public void user_menekan_button_Masuk_di_pojok_kanan_atas_halaman_utama() {
+        HomePage.menekanButtonMasuk();
     }
 
     public void user_diarahkan_ke_halaman_login_Flip() {
-
+        LoginPage.assertionUserBeradaDiHalamanLoginFlipID();
     }
 
     public void seluruh_elemen_pada_halaman_login_ditampilkan_dan_sesuai_dengan_deskripsi_Product_Owner() {
-
+        LoginPage.seluruhElemenPadaHalamanLoginPagesDitampilkan();
     }
 
     //Scenario 2:
     public void user_berada_di_halaman_login_Flip_ID() {
-
+        HomePage.open();
+        HomePage.menekanButtonMasuk();
     }
 
     public void user_menekan_gambar_icon_Flip_di_pojok_kiri_atas_halaman_login() {
-
+        LoginPage.klikFlipBranIconButton();
     }
 
     public void user_akan_di_arahkan_ke_halaman_utama_Flip_ID() {
-
+        HomePage.assertionUserOnHomePageFlipID();
     }
 
 
     //Scenario 3:
     public void user_menekan_button_Daftar_di_pojok_kanan_atas_halaman_login() {
+        LoginPage.klikButtonDaftarDiPojokKananAtasHalaman();
+    }
 
+    public void user_akan_di_arahkan_ke_halaman_Sign_Up(){
+        SignUpPage.assertionUserBeradaDiHalamanSignUpFlipID();
     }
 
     //Scenario 4:

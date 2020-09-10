@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class funct extends PageObject {
+public class Funct extends PageObject {
     public long getCurrrentTimeMs(){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         return timestamp.getTime();
