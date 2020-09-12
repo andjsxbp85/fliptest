@@ -31,9 +31,9 @@ public class LoginFlip {
     }
 
     //Scenario 2:
-    @Given("user berada di halaman login Flip ID")
-    public void user_berada_di_halaman_login_Flip_ID() {
-        LoginFlipStep.user_berada_di_halaman_login_Flip_ID();
+    @Given("user berada di halaman 'Login' Flip ID")
+    public void user_berada_di_halaman_Login_Flip_ID() {
+        LoginFlipStep.user_berada_di_halaman_Login_Flip_ID();
     }
 
     @When("user menekan gambar icon Flip di pojok kiri atas halaman login")
@@ -59,11 +59,6 @@ public class LoginFlip {
     }
 
     //Scenario 4:
-    @Given("user berada di halaman 'Login' Flip ID")
-    public void user_berada_di_halaman_Login_Flip_ID() {
-        LoginFlipStep.user_berada_di_halaman_Login_Flip_ID();
-    }
-
     @When("user menekan hyperlink ([^\"]*) pada halaman login Flip")
     public void user_menekan_hyperlink_activelink_pada_halaman_login_Flip(String activelink) {
         LoginFlipStep.user_menekan_hyperlink_activelink_pada_halaman_login_Flip(activelink);
@@ -80,30 +75,57 @@ public class LoginFlip {
         LoginFlipStep.login_Flip_dengan_email_dan_password_yang_benar_dan_sesuai_logindata(logindata);
     }
 
-    @Then("user akan diarahkan ke halaman dashboard flip")
-    public void user_akan_diarahkan_ke_halaman_dashboard_flip() {
-        LoginFlipStep.user_akan_diarahkan_ke_halaman_dashboard_flip();
+    @Then("user akan diarahkan ke halaman beranda flip sebagai ([^\"]*)")
+    public void user_akan_diarahkan_ke_halaman_beranda_flip_sebagai_logindata(String logindata) {
+        LoginFlipStep.user_akan_diarahkan_ke_halaman_beranda_flip_sebagai_logindata(logindata);
     }
 
     //Scenario 6:
+    @When("user mencoba login dengan membiarkan field email dan password kosong")
+    public void user_mencoba_login_dengan_membiarkan_field_email_dan_password_kosong() {
+        LoginFlipStep.user_mencoba_login_dengan_membiarkan_field_email_dan_password_kosong();
+    }
+
+    @Then("user tetap berada di halaman 'Login' Flip ID")
+    public void user_tetap_berada_di_halaman_Login_Flip_ID() {
+        LoginFlipStep.user_tetap_berada_di_halaman_Login_Flip_ID();
+    }
+
+    @Then("border line pada input field email berwarna merah dengan notifikasi {string}")
+    public void border_line_pada_input_field_email_berwarna_merah_dengan_notifikasi(String notif) {
+        LoginFlipStep.border_line_pada_input_field_email_berwarna_merah_dengan_notifikasi(notif);
+    }
+
+    @Then("border line pada input field password berwarna merah dengan notifikasi {string}")
+    public void border_line_pada_input_field_password_berwarna_merah_dengan_notifikasi(String notif) {
+        LoginFlipStep.border_line_pada_input_field_password_berwarna_merah_dengan_notifikasi(notif);
+    }
+
+    //Scenario 7:
     @When("login Flip dengan email ([^\"]*) dan password ([^\"]*) yang tidak cocok")
     public void login_Flip_dengan_email_mail_dan_password_pass_yang_tidak_cocok(String mail, String pass) {
         LoginFlipStep.login_Flip_dengan_email_mail_dan_password_pass_yang_tidak_cocok(mail, pass);
     }
 
-    //Scenario 7:
-    @When("login Flip dengan email ([^\"]*) dan password ([^\"]*) salah lebih dari 3 kali")
-    public void login_Flip_dengan_email_mail_dan_password_pass_salah_lebih_dari_kali(String mail, String pass) {
-        LoginFlipStep.login_Flip_dengan_email_mail_dan_password_pass_salah_lebih_dari_kali(mail, pass);
+    @Then("box error message gagal login karena email atau password salah ditampilkan")
+    public void box_error_message_gagal_login_karena_email_atau_password_salah_ditampilkan() {
+        LoginFlipStep.box_error_message_gagal_login_karena_email_atau_password_salah_ditampilkan();
     }
 
-    @Then("user tetap berada di halaman 'Login' Flip ID")
-    public void user_tetap_berada_di_halaman_Flip_ID() {
-        LoginFlipStep.user_tetap_berada_di_halaman_Flip_ID();
+    //Scenario 8:
+    @When("login Flip dengan email ([^\"]*) dan password ([^\"]*) salah lebih dari ([^\"]*) kali")
+    public void login_Flip_dengan_email_mail_dan_password_pass_salah_lebih_dari_n_kali(String mail, String pass, int num) {
+        LoginFlipStep.login_Flip_dengan_email_mail_dan_password_pass_salah_lebih_dari_3kali(mail, pass, num);
     }
 
-    @Then("box error message gagal login berwarna merah ditampilkan")
-    public void box_error_message_gagal_login_berwarna_merah_ditampilkan() {
-        LoginFlipStep.box_error_message_gagal_login_berwarna_merah_ditampilkan();
+    @Then("box error message gagal login lebih dari 3 kali berwarna merah ditampilkan")
+    public void box_error_message_gagal_login_lebih_dari_kali_berwarna_merah_ditampilkan() {
+        LoginFlipStep.box_error_message_gagal_login_lebih_dari_kali_berwarna_merah_ditampilkan();
+    }
+
+    //Background Scenario:
+    @Given("user berhasil login Flip ID sebagai ([^\"]*)")
+    public void user_berhasil_login_Flip_ID_sebagai_user(String user) {
+        LoginFlipStep.user_berhasil_login_Flip_ID_sebagai_user(user);
     }
 }

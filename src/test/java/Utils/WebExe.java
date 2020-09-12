@@ -12,7 +12,9 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class WebExe extends Funct {
     int selesai = 0;
@@ -354,6 +356,21 @@ public class WebExe extends Funct {
             } catch (Exception e){resetWhile++;if(resetWhile>1)break;}
         }
     }
+
+    public void createNewBrowserTab(){
+        ((JavascriptExecutor)getDriver()).executeScript("window.open()");
+        String windowHandle = getDriver().getWindowHandle();
+        ArrayList<String> tabs = new ArrayList<String>(getDriver().getWindowHandles());
+        try{Thread.sleep(200);}catch (InterruptedException e){}
+        getDriver().switchTo().window(tabs.get(tabs.size())); // ke tab index terakhir pasti tab terbaru
+    }
+
+    public void switchToWindowTabBrowser(int tabKe){
+        ArrayList<String> tabs = new ArrayList<String>(getDriver().getWindowHandles());
+        try{Thread.sleep(200);}catch (InterruptedException e){}
+        getDriver().switchTo().window(tabs.get(tabKe)); // ke tab index terakhir pasti tab terbaru
+    }
+
 }
 
 class validation{
