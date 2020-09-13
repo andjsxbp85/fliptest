@@ -7,6 +7,7 @@ public interface database {
     String _registerURL = "https://flip.id/signup";
     String _berandaURL = "https://flip.id/home";
     String _resetPassURL = "https://flip.id/lupa-password";
+    String _sendMoneyDomestic = "https://flip.id/kirim";
 
     String _gmailURL1 = "https://www.gmail.com/";
     String _gmailURL2 = "https://www.google.com/intl/id/gmail/about/";
