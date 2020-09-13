@@ -6,45 +6,45 @@ Feature: Forget Password
   I want to reset my password due forgetfulness
   So that I can access back my forgotten account
 
-#  @TestCaseKey=Flip-T30
-#  Scenario: 01 - All elements at 'Lupa Password' page shown and following PO description
-#    Given user berada di halaman 'Login' Flip ID
-#    When user menekan hyperlink Lupa password? pada halaman login Flip
-#    Then user dialihkan ke halaman 'Lupa Password' dengan seluruh element halaman ditampilkan mengikuti deskripsi PO
-#
-#  @TestCaseKey=Flip-T31
-#  Scenario: 02 - User focusing cursor at email field then click on random random position
-#    Given user berada di halaman 'Reset Password' Flip ID
-#    When mengklik kursor di input field email tanpa mengisinya kemudian melakukan klik di sembarang posisi
-#    Then user mendapatkan border color pada field input email berwarna merah dengan notifikasi 'Email harus diisi'
-#    And button 'RESET PASSWORD' menjadi disabled
-#
-#  @TestCaseKey=Flip-T32
-#  Scenario: 03 - User leaves input field email blank for reset password
-#    Given user berada di halaman 'Reset Password' Flip ID
-#    When user membiarkan input field email kosong dan langsung menekan button 'RESET PASSWORD'
-#    Then user tetap berada di halaman 'Reset Password'
-#    And user mendapatkan border color pada field input email berwarna merah dengan notifikasi 'Email harus diisi'
-#    And button 'RESET PASSWORD' berubah menjadi disabled
-#
-#  @TestCaseKey=Flip-T33
-#  Scenario Outline: 04 - User input wrong email format at input field email then click on random random position
-#    Given user berada di halaman 'Reset Password' Flip ID
-#    When mengisi input field email dengan format yang salah <mail> dan mengklik kursor di sembarang posisi
-#    Then button 'RESET PASSWORD' berubah menjadi disabled
-#    Examples:
-#    |mail|
-#    |wfwef   wefwef.com|
-#
-#  @TestCaseKey=Flip-T34
-#  Scenario Outline: 05 - User fill in wrong email format then force click button 'RESET PASSWORD'
-#    Given user berada di halaman 'Reset Password' Flip ID
-#    When mengisi input field email dengan format yang salah <mail> dan tetap memfokuskan kursor di field email
-#    Then button 'RESET PASSWORD' berubah menjadi disabled
-#    And ketka user tetap berusaha menekan button 'RESET PASSWORD', user tetap di halaman yang sama tanpa ada perubahan
-#    Examples:
-#    |mail|
-#    |wfwef   wefwef.com|
+  @TestCaseKey=Flip-T30
+  Scenario: 01 - All elements at 'Lupa Password' page shown and following PO description
+    Given user berada di halaman 'Login' Flip ID
+    When user menekan hyperlink Lupa password? pada halaman login Flip
+    Then user dialihkan ke halaman 'Lupa Password' dengan seluruh element halaman ditampilkan mengikuti deskripsi PO
+
+  @TestCaseKey=Flip-T31
+  Scenario: 02 - User focusing cursor at email field then click on random random position
+    Given user berada di halaman 'Reset Password' Flip ID
+    When mengklik kursor di input field email tanpa mengisinya kemudian melakukan klik di sembarang posisi
+    Then user mendapatkan border color pada field input email berwarna merah dengan notifikasi 'Email harus diisi'
+    And button 'RESET PASSWORD' menjadi disabled
+
+  @TestCaseKey=Flip-T32
+  Scenario: 03 - User leaves input field email blank for reset password
+    Given user berada di halaman 'Reset Password' Flip ID
+    When user membiarkan input field email kosong dan langsung menekan button 'RESET PASSWORD'
+    Then user tetap berada di halaman 'Reset Password'
+    And user mendapatkan border color pada field input email berwarna merah dengan notifikasi 'Email harus diisi'
+    And button 'RESET PASSWORD' berubah menjadi disabled
+
+  @TestCaseKey=Flip-T33
+  Scenario Outline: 04 - User input wrong email format at input field email then click on random random position
+    Given user berada di halaman 'Reset Password' Flip ID
+    When mengisi input field email dengan format yang salah <mail> dan mengklik kursor di sembarang posisi
+    Then button 'RESET PASSWORD' berubah menjadi disabled
+    Examples:
+    |mail|
+    |wfwef   wefwef.com|
+
+  @TestCaseKey=Flip-T34
+  Scenario Outline: 05 - User fill in wrong email format then force click button 'RESET PASSWORD'
+    Given user berada di halaman 'Reset Password' Flip ID
+    When mengisi input field email dengan format yang salah <mail> dan tetap memfokuskan kursor di field email
+    Then button 'RESET PASSWORD' berubah menjadi disabled
+    And ketka user tetap berusaha menekan button 'RESET PASSWORD', user tetap di halaman yang sama tanpa ada perubahan
+    Examples:
+    |mail|
+    |wfwef   wefwef.com|
 
   @TestCaseKey=Flip-T35
   Scenario Outline: 06 - User will get email notification after reset password at 'Lupa Password' Page
