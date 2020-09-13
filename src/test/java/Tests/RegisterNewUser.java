@@ -178,9 +178,9 @@ public class RegisterNewUser {
         RegisterNewUserStep.user_memilih_kode_negara_dengan_pencarian_Singapore_pada_modal_dialog_di_halaman_SignUp(country);
     }
 
-    @Then("modal dialog country code picker disembunyikan dan negara yang ditampilkan sesuai negara yang dipilih")
-    public void modal_dialog_country_code_picker_disembunyikan_dan_negara_yang_ditampilkan_sesuai_negara_yang_dipilih() {
-        RegisterNewUserStep.modal_dialog_country_code_picker_disembunyikan_dan_negara_yang_ditampilkan_sesuai_negara_yang_dipilih();
+    @Then("modal dialog country code picker disembunyikan dan negara yang ditampilkan sesuai negara yang dipilih ([^\"]*)")
+    public void modal_dialog_country_code_picker_disembunyikan_dan_negara_yang_ditampilkan_sesuai_negara_yang_dipilih(String countryShortCode) {
+        RegisterNewUserStep.modal_dialog_country_code_picker_disembunyikan_dan_negara_yang_ditampilkan_sesuai_negara_yang_dipilih(countryShortCode);
     }
 
     //Scenario 15:
@@ -210,15 +210,15 @@ public class RegisterNewUser {
         RegisterNewUserStep.user_mengklik_button_flag_country_code_kembali_namun_langsung_menutup_modal_dialog_yang_muncul();
     }
 
-    @Then("nilai value country saat ini adalah ([^\"]*) dan tidak berubah sesuai pilihan awal")
-    public void nilai_value_country_saat_ini_adalah_country_dan_tidak_berubah_sesuai_pilihan_awal(String country) {
-        RegisterNewUserStep.nilai_value_country_saat_ini_adalah_country_dan_tidak_berubah_sesuai_pilihan_awal(country);
+    @Then("nilai value country saat ini adalah ([^\"]*) dengan short code ([^\"]*) dan tidak berubah sesuai pilihan awal")
+    public void nilai_value_country_saat_ini_adalah_country_dengan_short_code_SC_dan_tidak_berubah_sesuai_pilihan_awal(String country, String SC) {
+        RegisterNewUserStep.nilai_value_country_saat_ini_adalah_country_dengan_short_code_SC_dan_tidak_berubah_sesuai_pilihan_awal(country, SC);
     }
 
     //Scenario 17:
     @When("user mendaftar sebagai pengguna baru dengan nomor handphone yang telah terdaftar ([^\"]*)")
     public void user_mendaftar_sebagai_pengguna_baru_dengan_nomor_handphone_yang_telah_terdaftar_phoneNumber(String phonenumber) {
-        RegisterNewUserStep.user_mendaftar_sebagai_pengguna_baru_dengan_nomor_handphone_yang_telah_terdaftar_phoneNumber(phonenumber);
+        RegisterNewUserStep.user_mendaftar_sebagai_pengguna_baru_dengan_nomor_handphone(phonenumber);
     }
 
     @Then("didapatkan error box message dengan notifikasi {string}")
@@ -227,6 +227,34 @@ public class RegisterNewUser {
     }
 
     //Scenario 18:
+    @When("registrasi user baru dengan nomor handphone yang telah terdaftar ([^\"]*) tetapi beda country ([^\"]*)")
+    public void registrasi_user_baru_dengan_nomor_handphone_yang_telah_terdaftar_phoneNumber_tetapi_beda_country_country(String noHP, String country) {
+        RegisterNewUserStep.registrasi_user_baru_dengan_nomor_handphone_yang_telah_terdaftar_phoneNumber_tetapi_beda_country_country(noHP, country);
+    }
+
+    @Then("user akan dialihkan ke halaman verifikasi nomor handphone dengan nomor tujuan ([^\"]*) ditambah ([^\"]*)")
+    public void user_akan_dialihkan_ke_halaman_verifikasi_nomor_handphone_dengan_nomor_tujuan_countryCode_ditambah_phoneNumber(String countryCode, String phoneNumber) {
+        RegisterNewUserStep.user_akan_dialihkan_ke_halaman_verifikasi_nomor_handphone_dengan_nomor_tujuan_countryCode_ditambah_phoneNumber(countryCode, phoneNumber);
+    }
+
+
+    //Scenario 19:
+    @When("user mengisi seluruh input field registrasi dengan baik dan benar untuk negara Indonesia")
+    public void user_mengisi_seluruh_input_field_registrasi_dengan_baik_dan_benar_untuk_negara_Indonesia() {
+        RegisterNewUserStep.user_mengisi_seluruh_input_field_registrasi_dengan_baik_dan_benar_untuk_negara_Indonesia();
+    }
+
+    @Then("user dialihkan ke halaman pilihan verifikasi melalui whatsapp atau sms")
+    public void user_dialihkan_ke_halaman_pilihan_verifikasi_melalui_whatsapp_atau_sms() {
+        RegisterNewUserStep.user_dialihkan_ke_halaman_pilihan_verifikasi_melalui_whatsapp_atau_sms();
+    }
+
+    @Then("apabila user memilih verifikasi via whatsapp ataupun sms, akan dialihkan lagi ke halaman verifikasi akhir no hp")
+    public void apabila_user_memilih_verifikasi_via_whatsapp_ataupun_sms_akan_dialihkan_lagi_ke_halaman_verifikasi_akhir_no_hp() {
+        RegisterNewUserStep.apabila_user_memilih_verifikasi_via_whatsapp_ataupun_sms_akan_dialihkan_lagi_ke_halaman_verifikasi_akhir_no_hp();
+    }
+
+    //Scenario 20:
     @When("use mengklik icon brand Flip ID di pojok kiri atas halaman 'SignUp'")
     public void use_mengklik_icon_brand_Flip_ID_di_pojok_kiri_atas_halaman_SignUp() {
         RegisterNewUserStep.use_mengklik_icon_brand_Flip_ID_di_pojok_kiri_atas_halamanSignUp();

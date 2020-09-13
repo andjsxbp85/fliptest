@@ -3,9 +3,8 @@ package Steps;
 import Pages.Dashboard.BerandaPages;
 import Pages.FrontPages.HomePage;
 import Pages.FrontPages.LoginPage;
-import Pages.FrontPages.SignUpPage;
+import Pages.RegistrasiUser.SignUpPage;
 import Utils.database;
-import net.serenitybdd.core.exceptions.SerenityManagedException;
 
 public class LoginFlipStep implements database {
     HomePage HomePage;

@@ -2,7 +2,8 @@ package Steps;
 
 import Pages.FrontPages.HomePage;
 import Pages.FrontPages.LoginPage;
-import Pages.FrontPages.SignUpPage;
+import Pages.RegistrasiUser.SignUpPage;
+import Pages.RegistrasiUser.VerifikasiNoHpPages;
 import Utils.database;
 import org.junit.Assert;
 
@@ -13,6 +14,7 @@ public class RegisterNewUserStep implements database {
     SignUpPage SignUpPage;
     HomePage HomePage;
     LoginPage LoginPage;
+    VerifikasiNoHpPages VerifikasiNoHpPages;
 
     public void seluruh_elemen_pada_halaman_Sign_Up_ditampilkan_dan_sesuai_dengan_deskripsi_Product_Owner() {
         SignUpPage.seluruhElemenPadaHalamanSignUpDitampilkan();
@@ -139,7 +141,6 @@ public class RegisterNewUserStep implements database {
         for(int i=0;i<numOfChar;i++){
             pass = pass + (char) SignUpPage.randomizerInt(32,125); //ascii space sampai simbol )
         }
-        System.out.println("pass ="+pass);
         SignUpPage.mengisiInputFieldPassword(pass);
     }
 
@@ -186,63 +187,118 @@ public class RegisterNewUserStep implements database {
 
     //Scenario 13:
     public void user_menekan_button_flag_country_code_di_sebelah_field_phone_number() {
-
+        SignUpPage.mengklikButtonFlagCountry();
     }
 
     public void muncul_pop_up_dialog_Cari_Kode_Negara_dengan_semua_elemen_ditampilkan_sesuai_deskripsi_PO() {
-
+        SignUpPage.assertionAllElementOnModalCountryCodeDialogShown();
     }
 
     //Scenario 14:
     public void user_memilih_kode_negara_dengan_pencarian_Singapore_pada_modal_dialog_di_halaman_SignUp(String country) {
-
+        SignUpPage.mengklikButtonFlagCountry();
+        SignUpPage.memilihKodeNoHPNegaraAsal(country);
     }
 
-    public void modal_dialog_country_code_picker_disembunyikan_dan_negara_yang_ditampilkan_sesuai_negara_yang_dipilih() {
-
+    public void modal_dialog_country_code_picker_disembunyikan_dan_negara_yang_ditampilkan_sesuai_negara_yang_dipilih(String countryShortCode) {
+        SignUpPage.modalDialogCountryCodePickerDisembunyikanSettelahMemilihNegaraDanNegaraYangDipilihSesuaiDenganHarapan(countryShortCode);
     }
 
     //Scenario 15:
+    List<String> countryResult = new ArrayList<>(); //index 0 = ctryResult, index 1 = country short code (ctrySCResult), index 2 = country phone code (ctryPCResult)
     public void user_mencari_nama_negara_CName_di_kotak_pencarian_dan_mendata_hasil_pencarian(String CName) {
-
+        SignUpPage.mengklikButtonFlagCountry();
+        countryResult = SignUpPage.memilihKodeNoHPNegaraAsal(CName);
     }
 
     public void user_kembali_mencari_kode_negara_CCode_di_kotak_pencarian_dan_mendata_hasil_pencarian(String CCode) {
-
+        SignUpPage.mengklikButtonFlagCountry();
     }
 
     public void didapatkan_hasil_pencarian_dengan_nama_negara_CName_maupun_kode_negara_CCodeadalah_sama(String CName, String CCode) {
-
+        Assert.assertTrue(SignUpPage.memilihKodeNoHPNegaraAsal(CCode).equals(countryResult));
     }
 
     //Scenario 16:
     public void user_memilih_kode_negara_dengan_pencarian_country_pada_modal_dialog_di_halaman_SignUp(String country) {
-
+        SignUpPage.mengklikButtonFlagCountry();
+        SignUpPage.memilihKodeNoHPNegaraAsal(country);
     }
 
     public void user_mengklik_button_flag_country_code_kembali_namun_langsung_menutup_modal_dialog_yang_muncul() {
-
+        SignUpPage.mengklikButtonFlagCountry();
+        SignUpPage.menekanButtonTutupPadModalDialogCariKodeNegara();
     }
 
-    public void nilai_value_country_saat_ini_adalah_country_dan_tidak_berubah_sesuai_pilihan_awal(String country) {
-
+    public void nilai_value_country_saat_ini_adalah_country_dengan_short_code_SC_dan_tidak_berubah_sesuai_pilihan_awal(String country, String SC) {
+        SignUpPage.modalDialogCountryCodePickerDisembunyikanSettelahMemilihNegaraDanNegaraYangDipilihSesuaiDenganHarapan(SC);
     }
 
     //Scenario 17:
-    public void user_mendaftar_sebagai_pengguna_baru_dengan_nomor_handphone_yang_telah_terdaftar_phoneNumber(String phonenumber) {
+    public void user_mendaftar_sebagai_pengguna_baru_dengan_nomor_handphone(String phonenumber) {
+        int rand1 = SignUpPage.randomizerInt(1,10), rand2 = SignUpPage.randomizerInt(1,10);
+        String nama1 = ""+(char) SignUpPage.randomizerInt(65,90);
+        String nama2 = ""+(char) SignUpPage.randomizerInt(65,90);
 
+        for(int i=0;i<2;i++){
+            if(i==1) rand1 = rand2;
+            for(int j=0;j<rand1;j++){
+                if(i==0){
+                    nama1 = nama1 + (char) SignUpPage.randomizerInt(97,122);
+                }
+                else {
+                    nama2 = nama2 + (char) SignUpPage.randomizerInt(97,122);
+                }
+            }
+        }
+
+        SignUpPage.mengisiInputFieldNama(nama1+" "+nama2);
+        SignUpPage.mengisiInputFieldEmail("anjas" + nama1.substring(1) + (char) SignUpPage.randomizerInt(97,122) + String.valueOf(SignUpPage.getCurrrentTimeMs()).substring(11) +"@gmail.com");
+        SignUpPage.mengisiInputFieldPassword("pass"+SignUpPage.randomizerInt(97,122)+"word"+(char) SignUpPage.randomizerInt(97,122) + String.valueOf(SignUpPage.getCurrrentTimeMs()).substring(11));
+        SignUpPage.mengisiInputFieldNoHP(phonenumber);
+
+        SignUpPage.mengklikButtonDAFTAR();
     }
 
     public void didapatkan_error_box_message_dengan_notifikasi(String notif) {
-
+        SignUpPage.assertionBoxErroMassageKesalahanPenulisanFieldNamaDitampilkan("Error:\n"+notif);
     }
 
     //Scenario 18:
-    public void use_mengklik_icon_brand_Flip_ID_di_pojok_kiri_atas_halamanSignUp() {
+    String nextHpNumber;
+    public void registrasi_user_baru_dengan_nomor_handphone_yang_telah_terdaftar_phoneNumber_tetapi_beda_country_country(String noHP, String country) {
+        SignUpPage.mengklikButtonFlagCountry();
+        SignUpPage.memilihKodeNoHPNegaraAsal(country);
+        //karena kalau duh pernah sampe tahap verifikasi daong sudah dianggap terdaftar dan gk bisa lagi dicoba
+        nextHpNumber = noHP.substring(0,4) + String.valueOf(SignUpPage.getCurrrentTimeMs()).substring(5);
+        user_mendaftar_sebagai_pengguna_baru_dengan_nomor_handphone(nextHpNumber);
+    }
 
+    public void user_akan_dialihkan_ke_halaman_verifikasi_nomor_handphone_dengan_nomor_tujuan_countryCode_ditambah_phoneNumber(String countryCode, String phoneNumber) {
+        VerifikasiNoHpPages.assertionUserAtPhoneNumberVerificationPageAkhir(countryCode,nextHpNumber);
+    }
+
+    //Scenario 19:
+    public void user_mengisi_seluruh_input_field_registrasi_dengan_baik_dan_benar_untuk_negara_Indonesia() {
+        nextHpNumber = "081" + String.valueOf(SignUpPage.getCurrrentTimeMs()).substring(4);
+        user_mendaftar_sebagai_pengguna_baru_dengan_nomor_handphone(nextHpNumber);
+    }
+
+    public void user_dialihkan_ke_halaman_pilihan_verifikasi_melalui_whatsapp_atau_sms() {
+        VerifikasiNoHpPages.assertionUserAtPhoneNumberVerificationBySMSorWAPage("+62",nextHpNumber);
+    }
+
+    public void apabila_user_memilih_verifikasi_via_whatsapp_ataupun_sms_akan_dialihkan_lagi_ke_halaman_verifikasi_akhir_no_hp() {
+        VerifikasiNoHpPages.klikVerifikasiButtonBy(true);
+        VerifikasiNoHpPages.assertionUserAtPhoneNumberVerificationPageAkhir("+62",nextHpNumber);
+    }
+
+    //Scenario 20:
+    public void use_mengklik_icon_brand_Flip_ID_di_pojok_kiri_atas_halamanSignUp() {
+        SignUpPage.klikFlipBrandIconButton();
     }
 
     public void user_akan_diarahkan_ke_halaman_utama_Flip_ID() {
-
+        LoginPage.assertionUserBeradaDiHalamanURL(_mainURL);
     }
 }

@@ -1,4 +1,4 @@
-package Pages.FrontPages;
+package Pages.RegistrasiUser;
 
 import Utils.WebExe;
 import Utils.database;
@@ -82,23 +82,51 @@ public class SignUpPage extends WebExe implements database {
 
     @FindBy(css="div.form-group span#password") WebElement flagNoHp;
     @FindBy(css="div.fade.popup-info.modal.show") WebElement countryCodeShown;
-    @FindBy(css="input[name='country']") WebElement searchCountryInputField;
-    @FindBy(css="div.modal-body div.list-group") WebElement searchListGroupResult;
-    String cssListCountrySearchResult = "div.modal-body div.list-group>button";
-    public void memilihKodeNoHPNegaraAsal(String country){
-        String xpathCountry = "//div[@class='modal-body']//div[@class='list-group']/button[contains(text(),'"+country+"')]";
+    public void mengklikButtonFlagCountry(){
         waitingForPresenceOfElement(flagNoHp,3000,100);
         click(flagNoHp,5);
         waitingForPresenceOfElement(countryCodeShown,3000,100);
+    }
+
+    @FindBy(css="input[name='country']") WebElement searchCountryInputField;
+    @FindBy(css="div.modal-body div.list-group") WebElement searchListGroupResult;
+    String cssListCountrySearchResult = "div.modal-body div.list-group>button";
+    String cssSpanShortCodeCountry = "div.modal-body div.list-group>button>span[title]";
+    //Balikan list >> index 0 = ctryResult, index 1 = country short code (ctrySCResult), index 2 = country phone code (ctryPCResult)
+    public List<String> memilihKodeNoHPNegaraAsal(String country){
+        String xpathCountry = "//div[@class='modal-body']//div[@class='list-group']/button[contains(text(),'"+country+"')]";
         sendKeys(searchCountryInputField,country,5);
-        WebElement expectedCountry = getDriver().findElement(By.xpath(xpathCountry));
-        waitingForPresenceOfElement(expectedCountry,600,100);
-        List<WebElement> countries = getDriver().findElements(By.cssSelector(cssListCountrySearchResult));
+        try {
+            WebElement expectedCountry = getDriver().findElement(By.xpath(xpathCountry));
+            waitingForPresenceOfElement(expectedCountry, 600, 100);
+        }catch (Exception e){}
+
+        String ctryResult = "", ctrySCResult = "", ctryPCResult = "";
+        List<WebElement> countries = getDriver().findElements(By.cssSelector(cssListCountrySearchResult)); int i = 0;
         for(WebElement cntry:countries){
             if(getText(cntry,5).contains(country)){
+                ctryResult = getText(cntry,5);
+                ctryPCResult = ctryResult.substring(ctryResult.indexOf("\n")+1);
+                ctryResult = ctryResult.substring(0,ctryResult.indexOf("\n"));
                 click(cntry,5); break;
             }
+            i++;
         }
+
+        List<WebElement> ShortCodeSpans = getDriver().findElements(By.cssSelector(cssSpanShortCodeCountry));
+        ctrySCResult = getAttribute(ShortCodeSpans.get(i),"title",5);
+
+        List<String> retResult = new ArrayList<>();
+        retResult.add(ctryResult);
+        retResult.add(ctrySCResult);
+        retResult.add(ctryPCResult);
+        return retResult;
+    }
+
+    @FindBy(css="div.modal-body div.popup-info__header span.popup-info__close-link") WebElement buttonTutup;
+    public void menekanButtonTutupPadModalDialogCariKodeNegara(){
+        waitingForPresenceOfElement(buttonTutup,1000,100);
+        click(buttonTutup,4);
     }
 
     @FindBy(css="input[name='no_hp']") WebElement inputFieldNoHp;
@@ -364,5 +392,36 @@ public class SignUpPage extends WebExe implements database {
 
     public String gettingPasswordValue(){
         return getAttribute(inputFieldPassword,"value",5);
+    }
+
+    @FindBy(css="div.modal-body>div.popup-info__header>b") WebElement modalCountryCodeTitle;
+    @FindBy(css="div.modal-body #name>i.fa-search") WebElement magnifierIcon;
+    //searchCountryInputField
+    //searchListGroupResult
+    public void assertionAllElementOnModalCountryCodeDialogShown(){
+        waitingForPresenceOfElement(modalCountryCodeTitle,3000,100);
+        waitingForPresenceOfElement(modalCountryCodeTitle,2000,100);
+        waitingForPresenceOfElement(modalCountryCodeTitle,1000,100);
+        waitingForPresenceOfElement(modalCountryCodeTitle,400,100);
+        waitingForPresenceOfElement(modalCountryCodeTitle,400,100);
+
+        Assert.assertTrue(modalCountryCodeTitle.isDisplayed());
+        Assert.assertTrue(magnifierIcon.isDisplayed());
+        Assert.assertTrue(searchCountryInputField.isDisplayed());
+        Assert.assertTrue(searchListGroupResult.isDisplayed());
+        Assert.assertTrue(buttonTutup.isDisplayed());
+
+        Assert.assertTrue(getAttribute(searchCountryInputField, "placeholder",5).equals("Cari nama negara atau kodenya"));
+        Assert.assertTrue(getText(modalCountryCodeTitle,5).equals("Cari Kode Negara"));
+        Assert.assertTrue(getText(buttonTutup,5).equals("Tutup"));
+    }
+
+    @FindBy(css="span.input-group-phone>span") WebElement countryShortCodePicked;
+    public void modalDialogCountryCodePickerDisembunyikanSettelahMemilihNegaraDanNegaraYangDipilihSesuaiDenganHarapan(String countryShortCode){
+        while (waitingForPresenceOfElement(countryCodeShown,200,100)); //menunggu hingga habis while modal ditamppilkan kemudain turun ke kode berikutnya
+        Assert.assertTrue(!waitingForPresenceOfElement(countryCodeShown,400,100));
+        waitingForPresenceOfElement(countryShortCodePicked,2000,100);
+        Assert.assertTrue(countryShortCodePicked.isDisplayed());
+        Assert.assertTrue(getAttribute(countryShortCodePicked,"title",5).equals(countryShortCode));
     }
 }
