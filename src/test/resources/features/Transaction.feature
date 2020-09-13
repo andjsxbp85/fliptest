@@ -31,5 +31,5 @@ Feature: Transaction
   @TestCaseKey=Flip-T51
   Scenario: 04 - Forcing send money above 5 hundred thousand will get Limit Transaction Error
     Given user berada di halaman 'Kirim Uang' Flip ID
-    When user mengisi semua field dengan benar dan nominal transfer di atas 5 juta
+    When user mengisi semua field dengan benar dan nominal transfer di atas 5 ratus ribu
     Then user akan mendapatkan error dialog 'Limit Transaction'
