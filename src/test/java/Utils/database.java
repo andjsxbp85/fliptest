@@ -6,6 +6,10 @@ public interface database {
     String _loginURL = "https://flip.id/login";
     String _registerURL = "https://flip.id/signup";
     String _berandaURL = "https://flip.id/home";
+    String _resetPassURL = "https://flip.id/lupa-password";
+
+    String _gmailURL1 = "https://www.gmail.com/";
+    String _gmailURL2 = "https://www.google.com/intl/id/gmail/about/";
 
     //Credentials
     String _mail1 = "flipidtester@gmail.com";
