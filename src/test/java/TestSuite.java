@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "classpath:features/FloatChatBox.feature"
+        features = "src/test/resources/features/"
 )
 
 public class TestSuite {
