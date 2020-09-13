@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "classpath:features/RegisterNewUser.feature"
+        features = "classpath:features/ForgetPassword.feature"
 )
 
 public class TestSuite {

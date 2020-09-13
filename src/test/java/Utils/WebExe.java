@@ -365,6 +365,7 @@ public class WebExe extends Funct {
         getDriver().switchTo().window(tabs.get(tabs.size())); // ke tab index terakhir pasti tab terbaru
     }
 
+    //index dimulai dari 0, berarti tab ke 2 indexnya adalah 1
     public void switchToWindowTabBrowser(int tabKe){
         ArrayList<String> tabs = new ArrayList<String>(getDriver().getWindowHandles());
         try{Thread.sleep(200);}catch (InterruptedException e){}

@@ -1,11 +1,22 @@
 @Login
-Feature: Login Flip
+Feature: Floating Chat Box
   As a User
-  I want login pages on flip web application
-  So that I can access my account and do any activities on it
+  I want a chat box helper
+  So that I can get help from Flip officer
 
-  @TestCaseKey=Flip-T1
-  Scenario: 01 - Float chat box exist and shown on button right corner of login pages
+  @TestCaseKey=Flip-T40
+  Scenario Outline: 01 - Float chat box exist and shown on bottom right corner of any pages
     Given user membuka halaman utama Flip ID
-    When user menekan button "Masuk" di pojok kanan atas halaman utama
-    Then terdapat floating button untuk chat box
+    When user membuka halaman tertentu <halaman> untuk url <rl>
+    Then terdapat floating chat box di setiap  <halaman> untuk url <rl> tersebut
+    Examples:
+    |halaman|url|
+    |Main Pages|https://flip.id/|
+    |Login Pages|https://flip.id/login|
+    |SignUp Pages|https://flip.id/signup|
+    |Biaya Pages|https://flip.id/site/biaya|
+    |Bantuan Pages|https://flipid.zendesk.com/hc/id|
+    |Lupa Password Pages|https://flip.id/lupa-password|
+    |Tutorial Pages|https://flip.id/site/tutorial|
+    |Cara Kerja pages|https://flip.id/start|
+    |FAQ Pages|https://flipid.zendesk.com/hc/id|
