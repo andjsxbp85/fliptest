@@ -45,7 +45,7 @@ public class HomePage extends WebExe implements database {
 
 
     //======================================== SPECIAL CHATBOX >> IN MANY PAGES ========================================
-    @FindBy(css="iframe#fc_widget[title='Chat']") WebElement hotlineChatIcon;
+    @FindBy(css="iframe#fc_widget") WebElement hotlineChatIcon;
     public void terdapatWidgetFloatingChatBox(){
         waitingForPresenceOfElement(hotlineChatIcon,6000,100);
         Assert.assertTrue(hotlineChatIcon.isDisplayed());
@@ -53,11 +53,16 @@ public class HomePage extends WebExe implements database {
 
     public void klikButtonFloatingChatBox(){
         waitingForPresenceOfElement(hotlineChatIcon,6000,100);
-        click(hotlineChatIcon,5);
-        try{Thread.sleep(500);}catch (InterruptedException e){}
+        click(hotlineChatIcon,5); int i = 0;
 
         getDriver().switchTo().frame(getDriver().findElement(By.cssSelector("iframe#fc_widget")));
-        waitingForPresenceOfElement(buttonClose,3000,100);
+
+        while (i<10 && !waitingForPresenceOfElement(buttonClose,1500,100)){
+            try{Thread.sleep(400);} catch (InterruptedException e){}
+            click(hotlineChatIcon,5);
+            i++;
+        }
+
         Assert.assertTrue(buttonClose.isDisplayed());
     }
 
