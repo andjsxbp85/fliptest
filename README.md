@@ -1,5 +1,5 @@
 # Flip ID Automation Test
-:art: Tes ini dibuat oleh Anjas Muhammad Bangun untuk tujuan proses recruitment di Flip ID sebagau Quality Assurance (Automation)
+:art: Tes ini dibuat oleh Anjas Muhammad Bangun untuk tujuan proses recruitment di Flip ID sebagai Quality Assurance (Automation)
 
 ## Report Test
 **Semua report test secara otomatis ada pada http://anjasmbangun.com/fliptest**
