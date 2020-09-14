@@ -3,12 +3,13 @@
 
   ## Summary
 **Jumlah Tes: 5 Fitur, 51 Test Case, dan 78 Scenario**
-Fitur yang dites:
-* 1. Login Flip ID
-* 2. Sign Up New User Flip ID
-* 3. Forget Password
-* 4. Floating Chat Box
-* 5. Transaction
+
+** Fitur yang dites: **
+* (1) Login Flip ID
+* (2) Sign Up New User Flip ID
+* (3) Forget Password
+* (4) Floating Chat Box
+* (5) Transaction
 
 ```
 Framework dan Utilitas yang digunakan: Java JDK 8, Maven, Cucumber, JUnit, Selenium, Serenity, Chrome Driver, Gherkin Syntax, BDD, JavaScript Executor
@@ -83,4 +84,4 @@ Credit:
 > Anjas Muhammad Bangun
 
 Special Thanks:
-> - Flip ID
+> Flip ID
