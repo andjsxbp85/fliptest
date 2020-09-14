@@ -1,7 +1,7 @@
 # Flip ID Automation Test
 :art: Tes ini dibuat oleh Anjas Muhammad Bangun untuk tujuan proses recruitment di Flip ID sebagai Quality Assurance (Automation)
 
-## Environment Test:
+## Environment Test
 **Website https://flip.id/**
 
 ## Report Test
