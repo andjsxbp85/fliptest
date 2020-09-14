@@ -35,9 +35,9 @@ Framework dan Utilitas yang digunakan: Java JDK 8, Maven, Cucumber, JUnit, Selen
 
 ## Bug and Issues
 > [MEDIUM] 1. Format nama tidak benar, belum sepenuhnya dapat dihandle secara front end. Nama yang tidak ada alphabet, 
-misal nama “24234\\]{_)- “ sudah bisa dihandle fornt end, tapi nama terselip 1 alphabet saja seperti 2423[]][Anjas Muhammad23 
-itu lolos pengecekan secara front end, tapi untungnya bisa dihandle secara back end setelah menekan button “DAFTAR”. 
-Hal ini bisa menurunkan sedikit performa server
+misal nama “24234\\]{_)- “ sudah bisa dihandle fornt end, tetapi nama yang terdapat 1 alphabet saja seperti 2423[]][Anjas Muhammad23 
+itu lolos pengecekan secara front end, namun baiknya adalah masih bisa dihandle secara back end setelah menekan button “DAFTAR”. 
+Hal ini bisa menurunkan sedikit performa server apabila semua proses dilakukan secara back end
  
  > [LOW] 2. Belum ada syarat minimal karakter di field nama, diisi 1 karakter saja masih bisa (optional, bisa saja nama orang memang 1 huruf)
  
