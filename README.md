@@ -7,10 +7,12 @@
 ## Report Test
 **Semua report test secara otomatis ada pada http://anjasmbangun.com/fliptest**
 **Apabila link tersebut tidak dapat diakses, maka**
+```
 >Download file report di bit.ly/fliptestreport
 >Extract file "Tes QA Engineer_(Anjas Muhammad Bangun).zip" ke dalam folder
 >Buka folder extract tersebut dan carilah file index.html
->Buka file index.html dengan browser, semisal Google Chrome (double klik file index.html atau klik kanan file dan open with browser)<
+>Buka file index.html dengan browser, semisal Google Chrome (double klik file index.html atau klik kanan file dan open with browser)
+```
 
 ## Summary
 **Jumlah Tes: 5 Fitur, 51 Test Case, dan 78 Scenario**
