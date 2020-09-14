@@ -6,12 +6,14 @@
 
 ## Report Test
 **Semua report test secara otomatis ada pada http://anjasmbangun.com/fliptest**
+
 **Apabila link tersebut tidak dapat diakses, maka**
 ```
->Download file report di bit.ly/fliptestreport
->Extract file "Tes QA Engineer_(Anjas Muhammad Bangun).zip" ke dalam folder
->Buka folder extract tersebut dan carilah file index.html
->Buka file index.html dengan browser, semisal Google Chrome (double klik file index.html atau klik kanan file dan open with browser)
+1. Download file report di bit.ly/fliptestreport
+2. Extract file "Tes QA Engineer_(Anjas Muhammad Bangun).zip" ke dalam folder
+3. Buka folder extract tersebut dan carilah file index.html
+4. Buka file index.html dengan browser, semisal Google Chrome, dengan cara
+5. double klik file index.html atau klik kanan file index.html kemudian pilih open with browser Google Chrome
 ```
 
 ## Summary
