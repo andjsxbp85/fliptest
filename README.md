@@ -1,10 +1,13 @@
 # Flip ID Automation Test
 :art: Tes ini dibuat oleh Anjas Muhammad Bangun untuk tujuan proses recruitment di Flip ID sebagau Quality Assurance (Automation)
 
-  ## Summary
+## Report Test
+**Semua report test secara otomatis ada pada http://anjasmbangun.com/fliptest**
+
+## Summary
 **Jumlah Tes: 5 Fitur, 51 Test Case, dan 78 Scenario**
 
-** Fitur yang dites: **
+**Fitur yang dites:**
 * (1) Login Flip ID
 * (2) Sign Up New User Flip ID
 * (3) Forget Password
