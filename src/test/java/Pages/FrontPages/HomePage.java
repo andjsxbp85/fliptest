@@ -58,7 +58,7 @@ public class HomePage extends WebExe implements database {
         getDriver().switchTo().frame(getDriver().findElement(By.cssSelector("iframe#fc_widget")));
 
         while (i<10 && !waitingForPresenceOfElement(buttonClose,1500,100)){
-            try{Thread.sleep(400);} catch (InterruptedException e){}
+            try{Thread.sleep(250);} catch (InterruptedException e){}
             click(hotlineChatIcon,5);
             i++;
         }

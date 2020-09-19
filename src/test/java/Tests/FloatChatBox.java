@@ -66,7 +66,7 @@ public class FloatChatBox {
     //Scenario 5:
     @When("user mengirim chat ([^\"]*) di chatbox dengan email ([^\"]*)")
     public void user_mengirim_chat_chat_di_chatbox_dengan_email_mail(String chat, String mail) {
-        FloatChatBoxStep.user_mengirim_chat_chat_di_chatbox_dengan_email_mail(chat, mail);
+        //FloatChatBoxStep.user_mengirim_chat_chat_di_chatbox_dengan_email_mail(chat, mail);
     }
 
     @Then("pesan ([^\"]*) beserta email ([^\"]*) yang telah kita kirim tetera di chat box dialog")
